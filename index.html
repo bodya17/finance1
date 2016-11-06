@@ -1,0 +1,81 @@
+<!doctype html>
+<html ng-app="calc">
+  <head>
+    <title>Фінансовий калькулятор</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/i18n/angular-locale_uk-ua.js" charset="utf-8"></script>
+    <!-- <script srt="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0/angular-moment.min.js"></script> -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+  </head>
+  <body>
+
+    <div ng-controller="calculatorCtrl" class="container">
+
+
+        <h1>Фінансовий калькулятор</h1>
+        <div style="display:inline-block; min-height:290px;">
+          <div uib-datepicker ng-model="start" class="well well-sm" datepicker-options="options"></div>
+        </div>
+        <div style="display:inline-block; min-height:290px;">
+          <div uib-datepicker ng-model="end" class="well well-sm" datepicker-options="options"></div>
+        </div>
+
+        <br>
+
+        <label>
+          Ставка <i>d</i> на першу половину року
+          <input class="form-control" min="0" max="1" step="0.01" type="number" ng-model="d1">
+        </label>
+        <label>
+          Ставка <i>d</i> на другу половину року
+          <input class="form-control" type="number" step="0.01" ng-model="d2">
+        </label>
+
+
+        <!-- <pre><b>Початок угоди:</b> <em>{{start | date:'fullDate' }}</em></pre>
+        <pre><b>Кінець угоди:</b> <em>{{end | date:'fullDate' }}</em></pre>
+        <pre><b>Різниця:</b> {{difference()}}</pre> -->
+
+        <table class="table">
+          <tr>
+            <td>Активи на початок року</td>
+            <td><input my-directive class="form-control" type="text" ng-model="assetsStart"></td>
+          </tr>
+          <tr>
+            <td>Прибуток від продажів</td>
+            <td><input class="form-control" type="number" ng-model="saleIncome"></td>
+          </tr>
+          <tr>
+            <td>Чистий інвестиційний дохід</td>
+            <td><input class="form-control" type="number" ng-model="investIncome"></td>
+          </tr>
+          <tr>
+            <td>Виплата зарплати</td>
+            <td><b>{{salary() | currency}}</b></td>
+          </tr>
+          <tr>
+            <td>Інші витрати</td>
+            <td><input class="form-control"  type="number" ng-model="restOutgoings"></td>
+          </tr>
+          <tr>
+            <td>Активи на кінець року</td>
+            <td><input class="form-control" type="number" ng-model="assestsEnd"></td>
+          </tr>
+        </table>
+          <!-- {{ money }} -->
+          <h1>Графік</h1>
+          <div id="box" class="jxgbox" style="width:600px; height:600px;"></div>
+          <br>
+          <br>
+          <br>
+    </div>
+    <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
