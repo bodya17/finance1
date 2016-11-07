@@ -1,18 +1,4 @@
-.full button span {
-  background-color: limegreen;
-  border-radius: 32px;
-  color: black;
+p {
+  text-align: center;
+  font-size: 24px;
 }
-.partially button span {
-  background-color: orange;
-  border-radius: 2px;
-  color: black;
-}
-
-.ng-invalid::after {
-  background-color: red;
-}
-
-/*.ng-touched::before {
-    content: "touched";
-}*/
